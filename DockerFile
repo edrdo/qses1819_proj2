@@ -1,12 +1,12 @@
 FROM ubuntu:17.04
-MAINTAINER Christian Godenschwager <christian.godenschwager@fau.de>
+MAINTAINER Eduardo Marques <edrdo@dcc.fc.up.pt>
 
-# OpenSSH is required to run MPI applications
 RUN apt-get update &&  apt-get install  -y \
     automake \
     build-essential \
     make \ 
     curl \
     git \   
+    openssh \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* 
