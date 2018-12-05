@@ -4,6 +4,7 @@ MAINTAINER Eduardo Marques <edrdo@dcc.fc.up.pt>
 # Install necessary packages
 RUN apt-get update && apt-get install  -y \
     build-essential \
+    man \
     tar \ 
     xz-utils \
     curl \
@@ -54,3 +55,7 @@ RUN cd /tmp && git clone https://gitlab.com/akihe/radamsa && \
 RUN cd /tmp && git clone https://github.com/edrdo/blab && \
     cd blab && make && make install && cd /tmp && rm -fr blab
 
+# qses user
+RUN useradd -ms /bin/bash qses
+USER qses
+WORKDIR /home/qses
