@@ -7,6 +7,9 @@ RUN apt-get update && apt-get install  -y \
     xz-utils \
     curl \
     vim \
+    cmake \
+    gcovr \
+    lcov \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* 
 
@@ -22,6 +25,11 @@ RUN    cd /usr/local \
 
 
 RUN update-alternatives --install /usr/bin/clang   clang   /usr/local/clang/bin/clang 999 \
- && update-alternatives --install /usr/bin/clang++ clang++ /usr/local/clang/bin/clang++ 999 
+&& update-alternatives --install /usr/bin/clang++ clang++ /usr/local/clang/bin/clang++ 999 \
+ && update-alternatives --install /usr/bin/cc  cc  /usr/local/clang/bin/clang 999 \
+&& update-alternatives --install /usr/bin/c++ c++ /usr/local/clang/bin/clang++ 999
 
 ENV PATH="/usr/local/clang/bin:${PATH}"
+
+ENV CC="clang"
+ENV CXX="clang++"
