@@ -7,10 +7,12 @@ RUN apt-get update && apt-get install  -y \
     tar \ 
     xz-utils \
     curl \
+    wget \
     vim \
     cmake \
     gcovr \
     lcov \
+    git \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* 
 
@@ -43,3 +45,7 @@ RUN cd /tmp && \
         mkdir  googletest-release-1.8.1/build && \
 	cd googletest-release-1.8.1/build && cmake -D BUILD_GMOCK=OFF .. && \
         make all install && cd /tmp && rm -fr googletest-release-1.8.1
+
+# Install radamsa
+RUN cd /tmp && git clone https://gitlab.com/akihe/radamsa && \
+    cd radamsa && make && make install && cd /tmp && rm -fr radamsa
