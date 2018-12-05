@@ -49,3 +49,8 @@ RUN cd /tmp && \
 # Install radamsa
 RUN cd /tmp && git clone https://gitlab.com/akihe/radamsa && \
     cd radamsa && make && make install && cd /tmp && rm -fr radamsa
+
+# Install blab
+RUN cd /tmp && git clone https://github.com/edrdo/blab && \
+    cd blab && make && make install && cd /tmp && rm -fr blab
+
