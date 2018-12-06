@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install  -y \
     vim \
     cmake \
     gcovr \
+    libbsd-dev \
     lcov \
     git \
  && apt-get clean \
