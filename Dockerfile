@@ -4,6 +4,7 @@ MAINTAINER Eduardo Marques <edrdo@dcc.fc.up.pt>
 # Install necessary packages
 RUN apt-get update && apt-get install  -y \
     build-essential \
+    gdb \
     man \
     tar \ 
     xz-utils \
