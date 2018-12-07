@@ -60,3 +60,7 @@ RUN cd /tmp && git clone https://github.com/edrdo/blab && \
 RUN useradd -ms /bin/bash qses
 USER qses
 WORKDIR /home/qses
+
+# UBSAN ASAN
+ENV ASAN_OPTIONS="abort_on_error=1:disable_coredump=0:unmap_shadow_on_exit=1"
+ENV UBSAN_OPTIONS="abort_on_error=1:disable_coredump=0:unmap_shadow_on_exit=1"
